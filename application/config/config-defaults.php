@@ -65,7 +65,7 @@ $config['printanswershonorsconditions'] = 1;        // If set to 1, only relevan
 // Only applicable, of course, if you have chosen 'R' for $dropdowns and/or $lwcdropdowns
 $config['repeatheadings']     =   '25';             // The number of answers to show before repeating the headings in array (flexible) questions. Set to 0 to turn this feature off
 $config['minrepeatheadings']  =   3;                // The minimum number of remaining answers that are required before repeating the headings in array (flexible) questions.
-$config['defaultlang']        =   'en';             // The default language to use - the available languages are the directory names in the /locale dir - for example de = German
+$config['defaultlang']        =   'zh-Hans';             // The default language to use - the available languages are the directory names in the /locale dir - for example de = German
 
 $config['timeadjust']         =   0;                // Number of hours to adjust between your webserver local time and your own local time (for datestamping responses)
 $config['allowexportalldb']   =   0;                // 0 will only export prefixed tables when doing a database dump. If set to 1 ALL tables in the database will be exported

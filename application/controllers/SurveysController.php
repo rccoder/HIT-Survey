@@ -10,6 +10,7 @@
 
         public function actionPublicList($sLanguage = null)
         {
+            $sLanguage = 'zh-Hans';
             if (isset($sLanguage))
             {
                 App()->setLanguage($sLanguage);
