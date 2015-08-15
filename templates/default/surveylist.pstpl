@@ -17,13 +17,14 @@
     <tr>
         <td class="survey-contact">
             {SURVEYCONTACT}
+            <br>
+            <a href="./admin">登录</a>
         </td>
     </tr>
     <tr>
         <td class="language-changer">
-            <p>{LANGUAGECHANGER}</p>
             <a href="http://www.limesurvey.org" target="_blank"><img src="{TEMPLATEURL}poweredby.png" border="0" title="LimeSurvey Survey Software" /></a><br />
-            <a href="http://www.limesurvey.org" target="_blank">The Online Survey Tool</a> - Free & Open Source<br />
+            <a href="http://www.pureweber.com" target="_blank">Designed By Pureweber</a><br />
         </td>
     </tr>
 </table>

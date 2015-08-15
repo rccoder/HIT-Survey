@@ -18,7 +18,7 @@
 
             $this->render('publicSurveyList', array(
                 'publicSurveys' => Survey::model()->active()->open()->public()->with('languagesettings')->findAll(),
-                'futureSurveys' => Survey::model()->active()->registration()->public()->with('languagesettings')->findAll(),
+                //'futureSurveys' => Survey::model()->active()->registration()->public()->with('languagesettings')->findAll(),
 
             ));
         }
