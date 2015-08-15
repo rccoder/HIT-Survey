@@ -1,40 +1,57 @@
-<table class="survey-list-table">
-    <tr>
-        <td class="site-name">
-            <h1>{SITENAME}</h1>
-        </td>
-    </tr>
-    <tr>
-        <td class="survey-list-heading">
-            {SURVEYLISTHEADING}
-        </td>
-    </tr>
-    <tr>
-        <td class="survey-list">
-            <ul>{SURVEYLIST}</ul>
-        </td>
-    </tr>
-    <tr>
-        <td class="survey-contact">
+<header id="header">
+        <!-- logo-->
+        <h1 id="logo"><a href="#">{SITENAME}</a></h1>
+        <!-- end logo -->
+        <!-- start nav -->
+        <nav id="nav">
+            <ul>
+                <li><a href="#">首页</a></li>
+                <li><a href="#">首页</a></li>
+                <li><a href="#">首页</a></li>
+                <li><a href="#">首页</a></li>
+                <li><a href="./admin">登录</a></li>
+            </ul>
+        </nav>
+        <!-- end nav -->
+    </header>
+    <!--end header-->
+    <!-- start intro-->
+    <section id="intro">
+        <div class="content">
+            <header>
+                <h2>哈工大问卷调查系统欢迎你</h2>
+            </header>
+            <p>哈工大问卷调查系统欢迎你哈工大问卷调查系统欢迎你哈工大问卷调查系统欢迎你哈工大问卷调查系统欢迎你哈工大问卷调查系统欢迎你哈工大问卷调查系统欢迎你哈工大问卷调查系统欢迎你哈工大问卷调查系统欢迎你哈工大问卷调查系统欢迎你哈工大问卷调查系统欢迎你哈工大问卷调查系统欢迎你哈工大问卷调查系统欢迎你哈工大问卷调查系统欢迎你哈工大问卷调查系统欢迎你</p>
+        </div>
+    </section>
+    <!-- end intro -->
+    <!-- start show -->
+    <section id="show">
+        <div class="content box">
+            <header class="show-header">
+                <h3>{SURVEYLISTHEADING}</h3>
+            </header>
+            <ul class="show-ul">{SURVEYLIST}</ul>
+            <!--
+            <ul class="show-ul">
+                <li><a href="">你在干什么你在干什么你在干什么你在干什么</a></li>
+                <li>你在干什么你在干什么你在干什么你在干什么</li>
+                <li>你在干什么你在干什么你在干什么你在干什么</li>
+                <li>你在干什么你在干什么你在干什么你在干什么</li>
+                <li>你在干什么你在干什么你在干什么你在干什么</li>
+                <li>你在干什么你在干什么你在干什么你在干什么</li>
+                <li>你在干什么你在干什么你在干什么你在干什么</li>
+                <li>你在干什么你在干什么你在干什么你在干什么</li>
+                <li>你在干什么你在干什么你在干什么你在干什么</li>
+                <li>你在干什么你在干什么你在干什么你在干什么</li>
+            </ul>
+            -->
+        </div>
+    </section>
+    <!-- end show -->
+    <footer id="footer">
+        <p>
+            网络中心技术支持， Powered By <a href="http://www.pureweber.com">PureWeber</a>
             {SURVEYCONTACT}
-            <br>
-            <a href="./admin">登录</a>
-        </td>
-    </tr>
-    <tr>
-        <td class="language-changer">
-            <a href="http://www.limesurvey.org" target="_blank"><img src="{TEMPLATEURL}poweredby.png" border="0" title="LimeSurvey Survey Software" /></a><br />
-            <a href="http://www.pureweber.com" target="_blank">Designed By Pureweber</a><br />
-        </td>
-    </tr>
-</table>
-<style type="text/css">
-    body {
-        background-image: url({TEMPLATEURL}gradient2.gif);
-    }
-</style>
-<!--[if lt IE 7]>
-<script language="JavaScript">
-    jQuery.ready(function(){ correctPNG(); });
-</script>
-<![endif]-->
+        </p>
+    </footer>

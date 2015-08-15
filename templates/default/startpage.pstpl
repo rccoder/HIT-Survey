@@ -1,11 +1,13 @@
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <title>{SURVEYNAME}</title>
-<meta name="generator" content="LimeSurvey http://www.limesurvey.org" />
 
 <!-- The following line includes jquery-ui.css or jquery-ui-custom.css from template dir, template.css and needed specific css file for survey -->
 {TEMPLATECSS}
-
+<!--start rccoder css-->
+<link rel="stylesheet" href="{TEMPLATEURL}css/style.css">
+<link rel="stylesheet" href="{TEMPLATEURL}css/reset.css">
+<!--end rccoder css-->
 <!--[if lte IE 6]>
 <link rel="stylesheet" type="text/css" href="{TEMPLATEURL}ie_fix_6.css" />
 <![endif]-->
@@ -17,16 +19,19 @@
 <![endif]-->
 
 <!-- The following CSS hides visual elements of the progress bar from screen readers. -->
+<!--rccoder none-->
+<!--
 <style type="text/css" media="aural tty">
     progress-graph .zero, progress-graph .graph, progress-graph .cent { display: none; }
 		</style>
+-->
 	<!-- The following line includes jquery.js, jquery-ui.js, survey_runtime.js , template.js and needed specific js file for survey -->
-	{TEMPLATEJS}
+<!-- end rccoder none-->
+{TEMPLATEJS}
+
 <link rel="shortcut icon" href="{TEMPLATEURL}favicon.ico" />
+<!-- google analyyics| this should be delete-->
 {GOOGLE_ANALYTICS_JAVASCRIPT}
 </head>
-<body class="default lang-{SURVEYLANGUAGE} {SURVEYFORMAT}">
-    <div class="outerframe">
-        <table class="innerframe">
-            <tr>
-                <td>
+<body>
+

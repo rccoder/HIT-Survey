@@ -1,0 +1,122 @@
+#header {
+	position: fixed;
+	z-index: 10000;
+	left: 0;
+	top: 0;
+	width: 100%;
+	background: rgba(255, 255, 255, 0.95);
+	height: 3em;
+    line-height: 3em;
+    box-shadow: 0 0 0.15em 0 rgba(0,0,0,0.1);
+}
+
+#logo {
+	position: absolute;
+    left: 1em;
+    top: 0;
+    height: 3em;
+    line-height: 3em;
+    letter-spacing: -1px;
+}
+
+#logo a {
+    font-size: 1.25em;
+}
+
+#nav {
+	position: absolute;
+	right: 0.5em;
+	top: 0;
+	height: 3em;
+	line-height: 3em;
+}
+
+#nav ul {
+	margin: 0;
+}
+
+#nav ul li {
+	display: inline-block;
+	margin-left: 0.5em;
+	font-size: 0.9em;
+}
+
+#intro {
+	background: url(../images/overplay.png), url(../images/intro.png);
+	background-size: 256px 256px, cover;
+    background-position: top left, bottom center;
+    background-repeat: repeat, no-repeat;
+    height: 220px;
+    text-align: center;
+    padding: 10em 0 10em 0;
+    color: #fff;
+}
+
+#intro .content {
+	width: 900px;
+	margin: 0 auto;
+	font-size: 85%;
+}
+
+#intro .content header {
+	margin-bottom: 1em;
+}
+
+#intro .content header h2 {
+	font-size: 3.65em;
+    line-height: 1em;
+    letter-spacing: -4px;
+}
+
+#intro .content p {
+	letter-spacing: 2px;
+    line-height: 1.8em;
+}
+
+#show {
+	background: url(../images/overplay.png), url(../images/show.png);
+	background-size: 256px 256px, cover;
+    background-position: top left, bottom center;
+    background-repeat: repeat, no-repeat;
+    height: 220px;
+    text-align: center;
+    padding: 10em 0 10em 0;
+    color: #fff;
+}
+
+#show .content {
+	position: relative;
+    width: 70%;
+	left: 30%;
+	margin-top: -6%;
+}
+.box {
+	background: #fff;
+    color: #39454b;
+
+}
+
+.show-header {
+	position: absolute;
+	padding: 2em;
+	color: #0099FF
+}
+
+.show-ul {
+	padding: 3em;
+	margin-left: -4%;
+}
+.show-ul a {
+	color:#1abc9c;
+}
+
+#footer {
+	background-color: #39454b;
+	text-align: center;
+	height: 6em;
+	font: 400 1em/1.8 Avenir, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif;;
+}
+
+#footer p{
+	line-height: 6em;
+}
