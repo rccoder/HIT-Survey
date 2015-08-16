@@ -5,6 +5,9 @@ body {
 .hide {
 	display: none;
 }
+button, .radio {
+	cursor:pointer
+}
 .survey {
 	background: #fff;
 	margin: 10px auto 90px;
@@ -101,6 +104,20 @@ body {
     border-radius: 4px;
 }
 
-.survey-nav .submit-buttons button{
-	margin-right: 0px;
+.survey-nav .submit-buttons button {
+	background-color: #4db14d;
+	border-color: #4db14d;
+	float: right;
+	padding: 6px 12px;
+	margin-left: 2%
+}
+
+#footer {
+	border-top: 1px solid #434343;
+	height: 100px
+}
+
+#footer p {
+	text-align: center;
+	line-height: 100px
 }
