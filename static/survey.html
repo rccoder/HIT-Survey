@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+	<meta charset="UTF-8">
+	<title>Survey</title>
+	<link rel="stylesheet" href="./css/reset.css">
+	<link rel="stylesheet" href="./css/survey.css">
+
+</head>
+<body>
+	<div class="survey">
+		<header id="header">
+			<h1>这是问卷的题目</h1>
+			<div class="intro">
+				<p>这是一个问卷的描述，主要用来说明一下云云的问题这是一个问卷的描述，主要用来说明一下云云的问题这是一个问卷的描述，主要用来说明一下云云的问题</p>
+			</div>
+		</header>
+		<div class="welcome">
+			<p>这是一个欢迎语，大概是用来说明我要欢迎你</p>
+			<p>共有10道题</p>
+		</div>
+		<div class="content">
+			<div class="group" id="group1">
+				<div class="gropu-name">
+					<span>第一组问题</span><br>
+					<span>这是这组问题的描述</span>
+				</div>
+				<div class="question" id="question1">
+					<div class="questiontext">
+						<span class="asterisk">*</span>
+						<span class="qnumcode">1.</span><br>
+						一个男人要走多少的路？<br>
+						<span class="questionhelp">这可能是一个帮助</span>
+					</div>
+					<div class="answer">
+						<ul class="answer-list radio-list">
+							<li class="answer-item radio-item">
+								<input type="radio" class="radio">
+								<label for="radio1" class="answertext">一</label>
+							</li>
+							<li class="answer-item radio-item">
+								<input type="radio" class="radio">
+								<label for="radio2" class="answertext">二</label>
+							</li>
+							<li class="answer-item radio-item">
+								<input type="radio" class="radio">
+								<label for="radio2" class="answertext">三</label>
+							</li>
+							<li class="answer-item radio-item">
+								<input type="radio" class="radio">
+								<label for="radio2" class="answertext">四</label>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="question" id="question2">
+					<div class="questiontext">
+						<span class="asterisk">*</span>
+						<span class="qnumcode">1.</span><br>
+						一个女人要走多少的路？<br>
+						<span class="questionhelp">这可能是一个帮助</span>
+					</div>
+					<div class="answer">
+						<p class="question answer-item text-item">
+							<label for="" class="hide">答案</label>
+							<textarea name="" id="" cols="40" rows="10" class="textarea">
+								这个可能是个答案
+							</textarea>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div><!--end content-->
+		<nav class="survey-nav">
+			<div class="save-all">
+				<button>继续未完成的调查</button>
+			</div>
+			<div class="submit-buttons">
+				<button class="ui-button" value="上页" type="button button-primary">上一页</button>
+				<button class="ui-button" value="上页" type="button button-secondary">下一页</button>
+			</div>
+		</nav>
+		<footer id="footer">
+			<p>
+				Powered By PureWeber. <br>
+				网络中心技术支持
+			</p>
+		</footer>
+	</div>
+</body>
+</html>
