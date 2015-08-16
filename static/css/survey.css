@@ -1,0 +1,106 @@
+body {
+	background-color: #434343;
+	font-size: 100%;
+}
+.hide {
+	display: none;
+}
+.survey {
+	background: #fff;
+	margin: 10px auto 90px;
+	padding: 40px 4%;
+	border-radius: 5px;
+	max-width: 890px;
+}
+
+#header h1 {
+	text-align: center;
+	font-size: 1.8em;
+	color: #4b4b4b;
+	padding: 2% 0 3%;
+}
+
+#header .intro {
+	margin: 2% 0;
+	line-height: 1.6em;
+	font-size: 0.84em;
+}
+
+.welcome {
+	border-bottom: 1px solid #4b4b4b;
+}
+
+.welcome p{
+	text-align: center;
+	margin: 2% 0;
+}
+
+.group {
+	margin-top: 4%;
+}
+
+.group-name .group-name-title {
+	display: block;
+	font-size: 1.3em;
+	font-weight: 700;
+}
+
+.group-name .group-name-intro {
+	display: block;
+	font-size: 0.84em;
+	text-indent: 1em;
+	margin-bottom: 2%;
+}
+
+.question {
+	padding: 20px
+}
+
+.questiontext .qnumcode{
+	font-size: 1.5em;
+}
+
+.question .questionhelp {
+	display: block;
+	margin: 1% 5% 3%;
+	font-size: 0.84em
+}
+
+.answer {
+	padding: 1% 4%;
+	font-size: 0.97em;
+}
+.answer-item {
+	margin-bottom: 2%
+}
+.radio-list .radio-item .answertext{
+	padding-left: 1%;
+}
+
+.radio-list .radio-item input[type="radio"] {
+	width: 19px;
+	height: 19px;
+}
+.text-item textarea {
+	width: 100%;
+	min-height: 200px;
+	font-size: 0.85em;
+}
+
+.survey-nav {
+	padding: 6%
+}
+
+.survey-nav .save-all button {
+	background-color: #4db14d;
+	border-color: #4db14d;
+	color: #fff;
+	white-space: nowrap;
+    padding: 6px 12px;
+    font-size: 0.85em;
+    border-radius: 4px;
+}
+
+.survey-nav .submit-buttons button{
+	margin-right: 0px;
+}
