@@ -155,7 +155,7 @@ $config['display_user_password_in_email'] = true;
 //
 // The user still needs to be defined in the limesurvey database in order to
 // login and get his permissions (unless auth_webserver_autocreate_user is set to true)
-$config['auth_webserver'] = false;
+$config['auth_webserver'] = true;
 
 // auth_webserver_user_map
 // Enable username mapping
@@ -170,7 +170,7 @@ $config['auth_webserver_user_map'] = array();
 // Enable this if you want to automatically create users authenticated by the
 // webserver in LS
 // Default is false (commenting this options also means false)
-$config['auth_webserver_autocreate_user'] = false;
+$config['auth_webserver_autocreate_user'] = true;
 
 // auth_webserver_autocreate_profile
 // This is an array describing the default profile to use for auto-created users
