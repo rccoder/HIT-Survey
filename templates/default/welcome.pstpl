@@ -1,3 +1,18 @@
+
+
+<header id="survey-header">
+    {CHECKJAVASCRIPT}
+    <h1>{SURVEYNAME}</h1>
+    <div class="intro">
+        <p>{SURVEYDESCRIPTION}</p>
+    </div>
+</header>
+<div class="welcome">
+    <p>{WELCOME}</p>
+    <p>{THEREAREXQUESTIONS}</p>
+</div>
+<div class="content">
+<!--
 <table class="welcome-table">
     <tr>
         <td class="survey-description">
@@ -18,3 +33,4 @@
         </td>
     </tr>
 </table>
+-->

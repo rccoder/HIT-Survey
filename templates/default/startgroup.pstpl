@@ -1,4 +1,9 @@
+<div class="group" id="group1">
+	<div class="group-name">
+		<span class="group-name-title">{GROUPNAME}</span><br>
+<!--
 <table class="group">
 	<tr>
 		<td align="center">
 			<span class="group-name">{GROUPNAME}</span>
+-->

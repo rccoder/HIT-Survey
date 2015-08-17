@@ -1,3 +1,54 @@
+<div class="{QUESTION_CLASS}{QUESTION_MAN_CLASS}{QUESTION_INPUT_ERROR_CLASS}" {QUESTION_ESSENTIALS}>
+    <div class="questiontext">
+        <span class="asterisk">{QUESTION_MANDATORY}</span>
+        <span class="qnumcode">{QUESTION_NUMBER} {QUESTION_CODE} </span>
+        {QUESTION_TEXT}<br>
+        <span class="questionhelp">{QUESTION_HELP}</span>
+    </div>
+    <div class="answer">
+        {ANSWER}
+        <!--
+        <ul class="answer-list radio-list">
+            <li class="answer-item radio-item">
+                <input type="radio" name="testradio" class="radio">
+                <label for="radio1" class="answertext">一</label>
+            </li>
+            <li class="answer-item radio-item">
+                <input type="radio" name="testradio" class="radio">
+                <label for="radio2" class="answertext">二</label>
+            </li>
+            <li class="answer-item radio-item">
+                <input type="radio" name="testradio" class="radio">
+                <label for="radio2" class="answertext">三</label>
+            </li>
+            <li class="answer-item radio-item">
+                <input type="radio" name="testradio" class="radio">
+                <label for="radio2" class="answertext">四</label>
+            </li>
+        </ul>
+    -->
+    </div>
+    <div class="survey-question-help">
+        {QUESTIONHELP}
+    </div>
+</div>
+<!--
+<div class="question" id="question2">
+    <div class="questiontext">
+        <span class="asterisk">*</span>
+        <span class="qnumcode">1.</span>
+        一个男人要走多少的路？<br>
+        <span class="questionhelp">这可能是一个帮助</span>
+    </div>
+    <div class="answer">
+        <p class="question answer-item text-item">
+            <label for="" class="hide">答案</label>
+            <textarea name="" id="" class="textarea">这个可能是个答案
+            </textarea>
+        </p>
+    </div>
+</div>
+
 <div {QUESTION_ESSENTIALS} class="{QUESTION_CLASS}{QUESTION_MAN_CLASS}{QUESTION_INPUT_ERROR_CLASS}">
     <table class="question-wrapper">
         <tr>
@@ -20,3 +71,4 @@
         </tr>
     </table>
 </div>
+-->

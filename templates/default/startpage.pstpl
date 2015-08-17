@@ -24,7 +24,6 @@
 	<!-- The following line includes jquery.js, jquery-ui.js, survey_runtime.js , template.js and needed specific js file for survey -->
 <!-- end rccoder none-->
 {TEMPLATEJS}
-<link rel="stylesheet" href="{TEMPLATEURL}css/survey.css">
 <link rel="shortcut icon" href="{TEMPLATEURL}favicon.ico" />
 <!-- google analyyics| this should be delete-->
 {GOOGLE_ANALYTICS_JAVASCRIPT}
