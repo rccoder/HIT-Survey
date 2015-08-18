@@ -149,7 +149,7 @@ class AuthCAS extends AuthPluginBase
         $basedir=dirname(__FILE__);
         Yii::setPathOfAlias('myplugin', $basedir);
         Yii::import('myplugin.third_party.CAS.*');
-        require_once('CAS.php');
+        require_once('third_party/CAS/CAS.php');
         // Initialize phpCAS
         phpCAS::client(CAS_VERSION_2_0, $cas_host, $cas_port, $cas_context, false);
         // disable SSL validation of the CAS server
@@ -318,7 +318,7 @@ class AuthCAS extends AuthPluginBase
         $basedir=dirname(__FILE__);
         Yii::setPathOfAlias('myplugin', $basedir);
         Yii::import('myplugin.third_party.CAS.*');
-        require_once('CAS.php');
+        require_once('third_party/CAS/CAS.php');
         // Initialize phpCAS
         phpCAS::client(CAS_VERSION_2_0, $cas_host, $cas_port, $cas_context, false);
         // disable SSL validation of the CAS server
