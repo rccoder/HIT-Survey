@@ -189,13 +189,13 @@ $config['auth_webserver_autocreate_permissions'] = Array(
 );
 
 // auth_cas_autocreate_permissions
-+// This is an array describing the default permissions to use for auto-created users
-+// through the CAS authentication plugin
-+// This profile will be the same for all users.
-+$config['auth_cas_autocreate_permissions'] = Array(
-+	'surveys' => array('create'=>true,'read'=>true,'update'=>true,'delete'=>true,'export'=>true)
-+);
-+
+// This is an array describing the default permissions to use for auto-created users
+// through the CAS authentication plugin
+// This profile will be the same for all users.
+$config['auth_cas_autocreate_permissions'] = Array(
+	'surveys' => array('create'=>true,'read'=>true,'update'=>true,'delete'=>true,'export'=>true)
+);
+
 // hook_get_auth_webserver_profile
 // The optionnal 'hook_get_auth_webserver_profile' function is for advanced user usage only.
 // It is used to customize the profile of the imported user
