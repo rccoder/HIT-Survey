@@ -3,7 +3,7 @@
         <div class='header ui-widget-header'><?php echo $summary; ?></div>
         <br />
         <ul style='width: 500px; margin-left: auto; margin-right: auto'>
-            <?php 
+            <?php
             $pluginNames = array_keys($pluginContent);
             if (!isset($defaultAuth)) {
                 // Make sure we have a default auth, if not set, use the first one we find

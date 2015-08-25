@@ -120,7 +120,6 @@ class printablesurvey extends Survey_Common_Action
             {
                 $surveyname = $surveyname;
             }
-
             $survey_output = array(
             'SITENAME' => Yii::app()->getConfig("sitename")
             ,'SURVEYNAME' => $surveyname
@@ -1742,13 +1741,13 @@ class printablesurvey extends Survey_Common_Action
             $aFilter=explode(';',$qidattributes['array_filter']);
             $output .= "\n<p class='extrahelp'>";
             foreach ($aFilter as $sFilter)
-            {                       
+            {
                 $oQuestion=Question::model()->findByAttributes(array('title' => $sFilter, 'language' => $sLanguageCode, 'sid' => $surveyid));
                 if ($oQuestion)
                 {
                     $sNewQuestionText = flattenText(breakToNewline($oQuestion->getAttribute('question')));
                     $output .= sprintf(gT("Only answer this question for the items you selected in question %s ('%s')"),$qidattributes['array_filter'], $sNewQuestionText );
-                    
+
                 }
             }
             $output .= "</p>\n";
@@ -1767,7 +1766,7 @@ class printablesurvey extends Survey_Common_Action
                 }
             }
             $output .= "</p>\n";
-        }        
+        }
         return $output;
     }
 

@@ -28,7 +28,7 @@ class AdminController extends LSYii_Controller
         parent::_init();
         App()->getComponent('bootstrap');
         $sUpdateLastCheck = getGlobalSetting('updatelastcheck');
-
+        // echo "111111";
         $this->_sessioncontrol();
 
         if (Yii::app()->getConfig('buildnumber') != "" && Yii::app()->getConfig('updatecheckperiod') > 0 && $sUpdateLastCheck < dateShift(date("Y-m-d H:i:s"), "Y-m-d H:i:s", "-". Yii::app()->getConfig('updatecheckperiod')." days"))
