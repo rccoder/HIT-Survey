@@ -25,9 +25,19 @@ class AuthCAS extends AuthPluginBase
         'autoCreate' => array(
             'type' => 'select',
             'label' => 'Enable automated creation of user from LDAP ?',
-            'options' => array("0" => "No, don't create user automatically", "1" => "User creation on the first connection"),
+            'options' => array("0" => "No, don't create user automatically", "1" => "User creation on the first connection", "2" => "User creation from CAS attributes"),
             'default' => '0',
             'submitonchange' => true
+        ),
+        'casLoginAttr' => array(
+            'type' => 'string',
+            'label' => 'CAS attribute for login',
+            'default' => 'uid'
+        ),
+        'casFullnameAttr' => array(
+            'type' => 'string',
+            'label' => 'CAS attribute for fullname',
+            'default' => 'displayName'
         ),
         'server' => array(
             'type' => 'string',
@@ -113,7 +123,7 @@ class AuthCAS extends AuthPluginBase
                 $aPluginSettings['autoCreate']['current'] = $autoCreate;
             }
 
-            if ($autoCreate == 0)
+            if ($autoCreate != 1)
             {
                 // Don't create user. Hide unneeded ldap settings
                 unset($aPluginSettings['server']);
@@ -132,6 +142,13 @@ class AuthCAS extends AuthPluginBase
                 {
                     unset($aPluginSettings['ldaptls']);
                 }
+            }
+            //不是2的情况下销毁
+            if ($autoCreate != 2)
+            {
+                unset($aPluginSettings['casFullnameAttr']);
+                unset($aPluginSettings['casLoginAttr']);
+                unset($aPluginSettings['casMailAttr']);
             }
         }
 
@@ -185,7 +202,8 @@ class AuthCAS extends AuthPluginBase
         $oUser = $this->api->getUserByName($sUser);
         if (is_null($oUser))
         {
-            if ((boolean) $this->get('autoCreate') === true)
+            //LD
+            if ((int) $this->get('autoCreate') === 1)
             {
                 // auto-create
                 // Get configuration settings:
@@ -298,6 +316,52 @@ class AuthCAS extends AuthPluginBase
                     $this->setAuthFailure(100, ldap_error($ldapconn));
                     ldap_close($ldapconn); // all done? close connection
                     throw new CHttpException(401, 'No authorized user found for login "' . $username . '"');
+                    return;
+                }
+            }
+            //PHPCAS auto
+            else if((int) $this->get('autoCreate') === 2)
+            {
+               try {
+                    // import phpCAS lib
+                    $basedir=dirname(__FILE__);
+                    Yii::setPathOfAlias('myplugin', $basedir);
+                    Yii::import('myplugin.third_party.CAS.*');
+                    require_once('CAS.php');
+                    $cas_host = $this->get('casAuthServer');
+                    $cas_context = $this->get('casAuthUri');
+                    $cas_port = (int) $this->get('casAuthPort');
+                    // Initialize phpCAS
+                    //phpCAS::client($cas_version, $cas_host, $cas_port, $cas_context, false);
+                    // disable SSL validation of the CAS server
+                    //phpCAS::setNoCasServerValidation();
+                    $cas_fullname = phpCAS::getAttribute($this->get('casFullnameAttr'));
+                    $cas_login = phpCAS::getAttribute($this->get('casLoginAttr'));
+                }
+                catch (Exception $e)
+                {
+                    $this->setAuthFailure(self::ERROR_USERNAME_INVALID);
+                    throw new CHttpException(401, 'Cas attributes not found for "' . $username . '"');
+                    return;
+                }
+                $oUser = new User;
+                $oUser->users_name = phpCAS::getUser();
+                $oUser->password = hash('sha256', createPassword());
+                $oUser->full_name = $cas_fullname;
+                $oUser->parent_id = 1;
+                if ($oUser->save())
+                {
+                    if ($this->api->getConfigKey('auth_cas_autocreate_permissions'))
+                    {
+                        $permission = new Permission;
+                        $permission->setPermissions($oUser->uid, 0, 'global', $this->api->getConfigKey('auth_cas_autocreate_permissions'), true);
+                    }
+                    $this->setAuthSuccess($oUser);
+                    return;
+                } else
+                {
+                    $this->setAuthFailure(self::ERROR_USERNAME_INVALID);
+                    throw new CHttpException(401, 'User not saved : ' . $sUser .' / '  . $cas_fullname);
                     return;
                 }
             }
