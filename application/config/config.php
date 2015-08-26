@@ -27,7 +27,7 @@ return array(
 			'connectionString' => 'mysql:host=localhost;port=3306;dbname=lime;',
 			'emulatePrepare' => true,
 			'username' => 'root',
-			'password' => 'P@ssw0rd',
+			'password' => '',
 			'charset' => 'utf8',
 			'tablePrefix' => 'lime_',
 		),
