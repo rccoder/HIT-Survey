@@ -40,21 +40,25 @@ return array(
 		// ),
 
 		'urlManager' => array(
-			'urlFormat' => 'path',
+			'urlFormat' => 'get',
 			'rules' => require('routes.php'),
 			'showScriptName' => true,
 		),
 
 	),
 	// Use the following config variable to set modified optional settings copied from config-defaults.php
-	'config'=>array(
+    'config'=>array(
+        'auth_cas_autocreate_permissions' => array (
+            'surveys' => array('create' => true)
+        ),
 	// debug: Set this to 1 if you are looking for errors. If you still get no errors after enabling this
 	// then please check your error-logs - either in your hosting provider admin panel or in some /logs directory
 	// on your webspace.
 	// LimeSurvey developers: Set this to 2 to additionally display STRICT PHP error messages and get full access to standard templates
-		'debug'=>1,
-		'debugsql'=>0 // Set this to 1 to enanble sql logging, only active when debug = 2
-	)
+		'debug'=>2,
+		'debugsql'=>1 // Set this to 1 to enanble sql logging, only active when debug = 2
+    ),
+
 );
 /* End of file config.php */
 /* Location: ./application/config/config.php */
