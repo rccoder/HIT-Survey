@@ -832,6 +832,7 @@ function submitfailed($errormsg='')
 * it loads any answer defaults from command line or from the table defaultvalues
 * It is called from the related format script (group.php, question.php, survey.php)
 * if the survey has just started.
+* 感觉要在这儿进行一些修改
 */
 function buildsurveysession($surveyid,$preview=false)
 {
@@ -857,20 +858,47 @@ function buildsurveysession($surveyid,$preview=false)
     // NO TOKEN REQUIRED BUT CAPTCHA ENABLED FOR SURVEY ACCESS
     if ($tokensexist == 0 && isCaptchaEnabled('surveyaccessscreen',$thissurvey['usecaptcha']) && !isset($_SESSION['survey_'.$surveyid]['captcha_surveyaccessscreen'])&& !$preview)
     {
+        //session_start();
+        require_once dirname(__FILE__)."/CAS/CAS.php";
+        //指定log文件
+        phpCAS::setDebug('./log.log');
+
+        //指定cas地址，最后一个true表示是否cas服务器为https
+        phpCAS::client(CAS_VERSION_2_0,'ids.hit.edu.cn',443,'authserver',true);
+
+        phpCAS::handleLogoutRequests();
+
+        //本地退出应该重定向到CAS进行退出，传递service参数可以使CAS退出后返回本应用
+        //demo表示退出请求为logout的请求
+        if(isset($_GET['logout'])){
+            $param = array('service'=>'http://demo.cas.wisedu.cn:3273/');
+            phpCAS::logout($param);
+            exit;
+        }
+        //设置no ssl，即忽略证书检查.如果需要ssl，请用 phpCAS::setCasServerCACert()设置
+        //setCasServerCACert方法设置ssl证书，
+        phpCAS::setNoCasServerValidation();
+        phpCAS::forceAuthentication();
+
+
+        /*//默认的就是这种状况
         // IF CAPTCHA ANSWER IS NOT CORRECT OR NOT SET
+        //echo 2221;
         if (!isset($loadsecurity) ||
         !isset($_SESSION['survey_'.$surveyid]['secanswer']) ||
         $loadsecurity != $_SESSION['survey_'.$surveyid]['secanswer'])
         {
+            //echo 111;
             sendCacheHeaders();
             doHeader();
             // No or bad answer to required security question
 
             $redata = compact(array_keys(get_defined_vars()));
-            echo templatereplace(file_get_contents($sTemplatePath."startpage.pstpl"),array(),$redata,'frontend_helper[875]');
+            //下面一行测试注释掉，除样式没有发现其他影响
+            //echo templatereplace(file_get_contents($sTemplatePath."startpage.pstpl"),array(),$redata,'frontend_helper[875]');
             //echo makedropdownlist();
             echo templatereplace(file_get_contents($sTemplatePath."survey.pstpl"),array(),$redata,'frontend_helper[877]');
-
+            echo "我们需要对你的身份进行确认，确保你是哈尔滨工业大学师生，请点击下面的按钮进行全校统一认证登录";
             if (isset($loadsecurity))
             { // was a bad answer
                 echo "<font color='#FF0000'>".gT("The answer to the security question is incorrect.")."</font><br />";
@@ -915,7 +943,7 @@ function buildsurveysession($surveyid,$preview=false)
         }
         else{
             $_SESSION['survey_'.$surveyid]['captcha_surveyaccessscreen']=true;
-        }
+        }*/
     }
 
     //BEFORE BUILDING A NEW SESSION FOR THIS SURVEY, LET'S CHECK TO MAKE SURE THE SURVEY SHOULD PROCEED!
@@ -1199,12 +1227,12 @@ function buildsurveysession($surveyid,$preview=false)
     ." AND {{questions}}.parent_qid=0\n";
     $totalquestions = Yii::app()->db->createCommand($sQuery)->queryScalar();
 
-    $sQuery= "select count(*) from {{groups}} 
-        left join {{questions}} on  {{groups}}.gid={{questions}}.gid 
+    $sQuery= "select count(*) from {{groups}}
+        left join {{questions}} on  {{groups}}.gid={{questions}}.gid
         where {{groups}}.sid={$surveyid} and qid is null";
     $iTotalGroupsWithoutQuestions = Yii::app()->db->createCommand($sQuery)->queryScalar();
 
-    
+
     // Fix totalquestions by substracting Test Display questions
     $iNumberofQuestions=dbExecuteAssoc("SELECT count(*)\n"
     ." FROM {{questions}}"
@@ -1925,7 +1953,7 @@ function checkCompletedQuota($surveyid,$return=false)
         if(!$aQuotasInfo || empty($aQuotasInfo))
             return $aMatchedQuotas;
         // OK, we have some quota, then find if this $_SESSION have some set
-        $aPostedFields = explode("|",Yii::app()->request->getPost('fieldnames','')); // Needed for quota allowing update 
+        $aPostedFields = explode("|",Yii::app()->request->getPost('fieldnames','')); // Needed for quota allowing update
         foreach ($aQuotasInfo as $aQuotaInfo)
         {
             $iMatchedAnswers=0;
