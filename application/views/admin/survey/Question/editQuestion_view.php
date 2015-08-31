@@ -52,7 +52,7 @@ if ($adding || $copying) {
             <?php $eqrow  = array_map('htmlspecialchars', $eqrow); ?>
                 <ul><li>
                         <?php if($eqrow['title']) {$sPattern="^([a-zA-Z][a-zA-Z0-9]*|{$eqrow['title']})$";}else{$sPattern="^[a-zA-Z][a-zA-Z0-9]*$";} ?>
-                        <label for='title'> <?php eT("Code:"); ?></label><input type='text' size='20' maxlength='20' id='title' required='required' name='title' pattern='<?php echo $sPattern ?>' value="<?php echo $eqrow['title']; ?>" /> <?php if ($copying) eT("Note: You MUST enter a new question code!"); ?>
+                        <label for='title'> <?php eT("Code:"); ?></label><input type='text' size='20' maxlength='20' id='title' required='required' name='title' placeholder="问题编号，比如：Q1, Q2等" pattern='<?php echo $sPattern ?>' value="<?php echo $eqrow['title']; ?>" /> <?php if ($copying) echo "注意： 你必须填入一个问题编号"; ?>
                     </li><li>
                         <label for='question_<?php echo $eqrow['language']; ?>'><?php eT("Question:"); ?></label>
                         <div class="htmleditor">
@@ -123,9 +123,11 @@ if ($adding || $copying) {
                 </div>
                 <?php }
         } ?>
+
         <div id='questionbottom'>
 
 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <!--
   <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingOne">
       <h4 class="panel-title">
@@ -141,12 +143,12 @@ if ($adding || $copying) {
     </div>
   </div>
 
-
+-->
   <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingTwo">
       <h4 class="panel-title">
         <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          <?php eT("Advanced settings"); ?>
+          <?php echo "相关设置"; ?>
         </a>
       </h4>
     </div>
@@ -220,6 +222,11 @@ if ($adding || $copying) {
                 <?php if ($activated != "Y")
                     { ?>
                     <li>
+                        <label for="notice" style="color: red">注意：</label>
+                        <span>为保证你的样式完美展示：<br>
+                            单选题请选择<i>列表单选</i></span>
+                    </li>
+                    <li>
                         <label for='gid'><?php eT("Question group:"); ?></label>
                         <select name='gid' id='gid'>
 
@@ -271,6 +278,7 @@ if ($adding || $copying) {
                             <?php } ?>
                         />
                 </li>
+                <!--
                 <li>
                     <label for='relevance'><?php eT("Relevance equation:"); ?></label>
                     <textarea cols='50' rows='1' id='relevance' name='relevance' <?php if ($eqrow['conditions_number']) {?> readonly='readonly'<?php } ?>><?php echo $eqrow['relevance']; ?></textarea>
@@ -283,7 +291,7 @@ if ($adding || $copying) {
                     <label for='preg'><?php eT("Validation:"); ?></label>
                     <input type='text' id='preg' name='preg' size='50' value="<?php echo $eqrow['preg']; ?>" />
                 </li>
-
+                -->
 
                 <?php if ($adding) {
                         if (count($oqresult)) { ?>
@@ -327,11 +335,13 @@ if ($adding || $copying) {
             </ul>
 
 			<?php if (!$copying) { ?>
-				<p><a id="showadvancedattributes"><?php eT("Show advanced settings"); ?></a><a id="hideadvancedattributes" style="display:none;"><?php eT("Hide advanced settings"); ?></a></p>
+				<!--
+                <p><a id="showadvancedattributes"><?php eT("Show advanced settings"); ?></a><a id="hideadvancedattributes" style="display:none;"><?php eT("Hide advanced settings"); ?></a></p>
 				<div id="advancedquestionsettingswrapper" style="display:none;">
 					<div class="loader"><?php eT("Loading..."); ?></div>
 					<div id="advancedquestionsettings"></div>
 				</div><br />
+            -->
 			<?php } ?>
                 <?php if ($adding)
                     { ?>
@@ -363,6 +373,7 @@ if ($adding || $copying) {
 
         if (Permission::model()->hasSurveyPermission($surveyid,'surveycontent','import'))
         { ?>
+    <!--
         <br /><div class='header ui-widget-header'><?php eT("...or import a question"); ?></div>
         <?php echo CHtml::form(array("admin/questions/sa/import"), 'post', array('id'=>'importquestion', 'name'=>'importquestion', 'enctype'=>'multipart/form-data','onsubmit'=>"return validatefilename(this, '".gT("Please select a file to import!",'js')."');")); ?>
             <ul>
@@ -381,7 +392,7 @@ if ($adding || $copying) {
             <input type='hidden' name='sid' value='<?php echo $surveyid; ?>' />
             <input type='hidden' name='gid' value='<?php echo $gid; ?>' />
         </form>
-
+-->
         <?php } ?>
 
     <script type='text/javascript'>
