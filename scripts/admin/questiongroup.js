@@ -9,21 +9,40 @@
 * other free or open source software licenses.
 * See COPYRIGHT.php for copyright notices and details.
 */
-
+/*
+ *name:rccoder
+ *url: github.com/rccoder
+ */
+ /*
+ 这种做法不好，直接后台删代码
+window.onload = function() {
+    //去掉导入问题
+    $('#tabs>ul>li').each(function(index) {
+        if (index == 1) $(this).css('display', 'none');
+    })
+    //去掉添加题组时的描述，随机组，相关方程
+    $('form[name="newquestiongroup"] li').each(function(index){
+        if(index != 0) $(this).css('display', 'none');
+    })
+}
+*/
 $(document).ready(function(){
+
+
+    //系统本身自带
     $('#newquestiongroup').submit(function(){
-        bResult=true;  
+        bResult=true;
         $('.group_title').each( function()
             {
                 if ($(this).val()=='')
                 {
-                    bResult=false;  
+                    bResult=false;
                 }
-        }); 
+        });
         if (!bResult)
         {
-            alert(sEnterTitle); 
+            alert(sEnterTitle);
         }
-        return bResult;    
+        return bResult;
     });
 });

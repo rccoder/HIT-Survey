@@ -136,11 +136,19 @@
 
 <table id='groupdetails' <?php echo $gshowstyle; ?> >
 <tr ><td ><strong>
-            <?php eT("Title"); ?>:</strong></td>
+            <?php echo "当前题组" ?>:</strong></td>
     <td>
         <?php echo $grow['group_name']; ?> (<?php echo $grow['gid']; ?>)</td>
 </tr>
 <tr>
+    <td><strong>
+        提&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;示:
+    </strong></td>
+    <td>
+        点击右上角+号添加本题组问题
+    </td>
+</tr>
+<tr style="display: none">
     <td><strong>
         <?php eT("Description:"); ?></strong>
     </td>
