@@ -13,8 +13,8 @@
             <ul>
                 <li><a href="#welcome" id="welcome_href">欢迎界面</a></li>
                 <li><a href="#show" id="show_href">公开调查</a></li>
-                <li><a href="">使用帮助</a></li>
                 <li><a href="#" id="contact_href">联系我们</a></li>
+                 <li><a href="./file/doc.pdf">使用帮助</a></li>
                 <li><a href="./admin">后台登录</a></li>
             </ul>
         </nav>
