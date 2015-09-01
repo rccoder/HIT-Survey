@@ -3,7 +3,9 @@
         <span class="asterisk">{QUESTION_MANDATORY}</span>
         <span class="qnumcode">{QUESTION_NUMBER} {QUESTION_CODE} </span>
         {QUESTION_TEXT}<br>
+        <!--//请选择一个符合的选项之类
         <span class="questionhelp">{QUESTION_HELP}</span>
+        -->
     </div>
     <div class="answer">
         {ANSWER}

@@ -361,7 +361,7 @@ class Survey_Common_Action extends CAction
 		{
 			$updateModel = new UpdateForm();
 			$updateNotification = $updateModel->updateNotification;
-			
+
 			if($updateNotification->result)
 			{
 				return $this->getController()->renderPartial("/admin/update/_update_notification", array('security_update_available'=>$updateNotification->security_update));
@@ -382,7 +382,7 @@ class Survey_Common_Action extends CAction
 
         //Show Question Details
         $qrrow = Question::model()->findByAttributes(array('qid' => $qid, 'gid' => $gid, 'sid' => $iSurveyID, 'language' => $baselang));
-        if (is_null($qrrow)) 
+        if (is_null($qrrow))
             return; // Throw 404 ....
 
 
@@ -431,8 +431,8 @@ class Survey_Common_Action extends CAction
             $aWarnings[]=array(
                 'url'=>App()->createUrl("admin/questions",array("sa"=>"subquestions","surveyid"=>$iSurveyID,"gid"=>$gid,"qid"=>$qid)),
                 'img'=>$qtypes[$qrrow['type']]['subquestions']>1 ? "subquestions2d_20.png" : "subquestions_20.png",
-                'text'=>gt("You need to add subquestions options to this question.",'unescaped'),
-                'help'=>gt("Edit subquestions options for this question.",'unescaped'),
+                'text'=>gt("你需要点击我后面的按钮为这个问题添加相关选项",'unescaped'),
+                'help'=>gt("编辑这个问题的的选项",'unescaped'),
             );
         }
         elseif($qtypes[$qrrow['type']]['subquestions'] > 1 && !Question::model()->count("parent_qid=:qid AND language=:language and scale_id=1",array(':qid' => $qid, ':language' => $baselang)))

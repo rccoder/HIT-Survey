@@ -10,7 +10,10 @@ form {
   border-radius: 5px;
   max-width: 890px;
 }
-
+ul,
+li {
+  list-style: none;
+}
 .hide {
   display: none;
 }
