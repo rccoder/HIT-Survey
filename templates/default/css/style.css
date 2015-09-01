@@ -1,3 +1,6 @@
+body {
+	font-family: "微软雅黑","Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+}
 #header {
 	position: fixed;
 	z-index: 10000;
@@ -7,7 +10,8 @@
 	background: rgba(255, 255, 255, 0.95);
 	height: 3em;
     line-height: 3em;
-    box-shadow: 0 0 0.15em 0 rgba(0,0,0,0.1);
+
+	box-shadow: 0 0 0.15em 0 rgba(0,0,0,0.1);
 }
 
 #logo {
@@ -65,10 +69,12 @@
 #intro .content header h2 {
 	font-size: 3.65em;
     line-height: 1em;
-    letter-spacing: -4px;
+
+	letter-spacing: 0.2em;
 }
 
 #intro .content p {
+	padding-top: 2em;
 	letter-spacing: 2px;
     line-height: 1.8em;
 }
@@ -97,9 +103,9 @@
 }
 
 .show-header {
-	position: absolute;
+	color: #0099FF;
 	padding: 2em;
-	color: #0099FF
+	position: absolute;
 }
 
 .show-ul {
@@ -111,12 +117,35 @@
 }
 
 #footer {
-	background-color: #39454b;
-	text-align: center;
+	color: #fff;
 	height: 6em;
-	font: 400 1em/1.8 Avenir, Microsoft Yahei, Hiragino Sans GB, Microsoft Sans Serif, WenQuanYi Micro Hei, sans-serif;;
 }
-
-#footer p{
-	line-height: 6em;
+#footer header h3{
+	text-align: center;
+	padding: 2em 0;
+	font-size: 1.5em;
+	letter-spacing: 0.5em;
+}
+#footer .link  header{
+	margin-left: 8em;
+	margin-bottom: 1em
+}
+#footer ul {
+	margin-left: 8em;
+}
+#footer li a{
+	float: left;
+	margin-left: 2em;
+	color: #fff;
+	font-size: 0.8em;
+}
+#footer .email a{
+	margin: 48%;
+}
+#footer .email img {
+	margin:  auto;
+	width: 68px;
+}
+.copyright {
+	font-size: 0.4em;
 }

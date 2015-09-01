@@ -58,3 +58,63 @@
 036E .|    |    |    -
 036E .|    |    -
 036E .|    -
+5A28 .START phpCAS-1.3.2 ****************** [CAS.php:450]
+5A28 .=> phpCAS::client('2.0', 'ids.hit.edu.cn', 443, 'authserver', true) [frontend_helper.php:867]
+5A28 .|    => CAS_Client::__construct('2.0', false, 'ids.hit.edu.cn', 443, 'authserver', true, true) [CAS.php:347]
+5A28 .|    <= ''
+5A28 .<= ''
+5A28 .=> CAS_Client::handleLogoutRequests(true, false) [CAS.php:1299]
+5A28 .|    Not a logout request [Client.php:1471]
+5A28 .<= ''
+5A28 .=> phpCAS::setNoCasServerValidation() [frontend_helper.php:880]
+5A28 .|    You have configured no validation of the legitimacy of the cas server. This is not recommended for production use. [CAS.php:1669]
+5A28 .<= ''
+5A28 .=> phpCAS::forceAuthentication() [frontend_helper.php:881]
+5A28 .|    => CAS_Client::forceAuthentication() [CAS.php:1101]
+5A28 .|    |    => CAS_Client::isAuthenticated() [Client.php:1085]
+5A28 .|    |    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1191]
+5A28 .|    |    |    |    no user found [Client.php:1377]
+5A28 .|    |    |    <= false
+5A28 .|    |    |    no ticket found [Client.php:1260]
+5A28 .|    |    <= false
+5A28 .|    |    => CAS_Client::redirectToCas(false) [Client.php:1094]
+5A28 .|    |    |    => CAS_Client::getServerLoginURL(false, false) [Client.php:1398]
+5A28 .|    |    |    |    => CAS_Client::getURL() [Client.php:329]
+5A28 .|    |    |    |    |    Final URI: http://127.0.0.1/HIT-Survey/index.php?r=survey/index&sid=483274&newtest=Y [Client.php:3074]
+5A28 .|    |    |    |    <= 'http://127.0.0.1/HIT-Survey/index.php?r=survey/index&sid=483274&newtest=Y'
+5A28 .|    |    |    <= 'https://ids.hit.edu.cn/authserver/login?service=http%3A%2F%2F127.0.0.1%2FHIT-Survey%2Findex.php%3Fr%3Dsurvey%2Findex%26sid%3D483274%26newtest%3DY'
+5A28 .|    |    |    Redirect to : https://ids.hit.edu.cn/authserver/login?service=http%3A%2F%2F127.0.0.1%2FHIT-Survey%2Findex.php%3Fr%3Dsurvey%2Findex%26sid%3D483274%26newtest%3DY [Client.php:1404]
+5A28 .|    |    |    exit()
+5A28 .|    |    |    -
+5A28 .|    |    -
+5A28 .|    -
+F7D2 .START phpCAS-1.3.2 ****************** [CAS.php:450]
+F7D2 .=> phpCAS::client('2.0', 'ids.hit.edu.cn', 443, 'authserver', true) [frontend_helper.php:867]
+F7D2 .|    => CAS_Client::__construct('2.0', false, 'ids.hit.edu.cn', 443, 'authserver', true, true) [CAS.php:347]
+F7D2 .|    <= ''
+F7D2 .<= ''
+F7D2 .=> CAS_Client::handleLogoutRequests(true, false) [CAS.php:1299]
+F7D2 .|    Not a logout request [Client.php:1471]
+F7D2 .<= ''
+F7D2 .=> phpCAS::setNoCasServerValidation() [frontend_helper.php:880]
+F7D2 .|    You have configured no validation of the legitimacy of the cas server. This is not recommended for production use. [CAS.php:1669]
+F7D2 .<= ''
+F7D2 .=> phpCAS::forceAuthentication() [frontend_helper.php:881]
+F7D2 .|    => CAS_Client::forceAuthentication() [CAS.php:1101]
+F7D2 .|    |    => CAS_Client::isAuthenticated() [Client.php:1085]
+F7D2 .|    |    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1191]
+F7D2 .|    |    |    |    no user found [Client.php:1377]
+F7D2 .|    |    |    <= false
+F7D2 .|    |    |    no ticket found [Client.php:1260]
+F7D2 .|    |    <= false
+F7D2 .|    |    => CAS_Client::redirectToCas(false) [Client.php:1094]
+F7D2 .|    |    |    => CAS_Client::getServerLoginURL(false, false) [Client.php:1398]
+F7D2 .|    |    |    |    => CAS_Client::getURL() [Client.php:329]
+F7D2 .|    |    |    |    |    Final URI: http://127.0.0.1/HIT-Survey/index.php?r=survey/index&sid=483274&lang=zh-Hans [Client.php:3074]
+F7D2 .|    |    |    |    <= 'http://127.0.0.1/HIT-Survey/index.php?r=survey/index&sid=483274&lang=zh-Hans'
+F7D2 .|    |    |    <= 'https://ids.hit.edu.cn/authserver/login?service=http%3A%2F%2F127.0.0.1%2FHIT-Survey%2Findex.php%3Fr%3Dsurvey%2Findex%26sid%3D483274%26lang%3Dzh-Hans'
+F7D2 .|    |    |    Redirect to : https://ids.hit.edu.cn/authserver/login?service=http%3A%2F%2F127.0.0.1%2FHIT-Survey%2Findex.php%3Fr%3Dsurvey%2Findex%26sid%3D483274%26lang%3Dzh-Hans [Client.php:1404]
+F7D2 .|    |    |    exit()
+F7D2 .|    |    |    -
+F7D2 .|    |    -
+F7D2 .|    -

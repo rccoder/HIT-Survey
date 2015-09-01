@@ -11,11 +11,11 @@
         <!-- start nav -->
         <nav id="nav">
             <ul>
-                <li><a href="#">首页</a></li>
-                <li><a href="#">首页</a></li>
-                <li><a href="#">首页</a></li>
-                <li><a href="#">首页</a></li>
-                <li><a href="./admin">登录</a></li>
+                <li><a href="#welcome" id="welcome_href">欢迎界面</a></li>
+                <li><a href="#show" id="show_href">公开调查</a></li>
+                <li><a href="">使用帮助</a></li>
+                <li><a href="#" id="contact_href">联系我们</a></li>
+                <li><a href="./admin">后台登录</a></li>
             </ul>
         </nav>
         <!-- end nav -->
@@ -27,7 +27,11 @@
             <header>
                 <h2>哈工大问卷调查系统欢迎你</h2>
             </header>
-            <p>哈工大问卷调查系统欢迎你哈工大问卷调查系统欢迎你哈工大问卷调查系统欢迎你哈工大问卷调查系统欢迎你哈工大问卷调查系统欢迎你哈工大问卷调查系统欢迎你哈工大问卷调查系统欢迎你哈工大问卷调查系统欢迎你哈工大问卷调查系统欢迎你哈工大问卷调查系统欢迎你哈工大问卷调查系统欢迎你哈工大问卷调查系统欢迎你哈工大问卷调查系统欢迎你哈工大问卷调查系统欢迎你</p>
+            <p>
+                本系统集成校园统一身份认证。可以针对你的问卷类型，选择访问问卷是否需要经过校园统一身份认证；同时，本系统集成一系列防刷行为，可以极大程度上保证你收集到结果的准确性。只要你是本校师生，就可以自由的使用本系统，欢迎你的使用。
+                <br>
+                如果你对本系统的开发感兴趣，或者对本系统有其他建设性的建议，欢迎发送邮件至admin@example.com
+            </p>
         </div>
     </section>
     <!-- end intro -->
@@ -56,8 +60,25 @@
     </section>
     <!-- end show -->
     <footer id="footer">
-        <p>
-            网络中心技术支持， Powered By <a href="http://www.pureweber.com">PureWeber</a>
-            {SURVEYCONTACT}
-        </p>
+        <header><h3>联系我们</h3></header>
+        <div class="email">
+            <a href="mailto:sss"><img src="./templates/default/images/email.jpg" alt=""></a>
+        </div>
+        <div class="link">
+            <header>友情链接：</header>
+            <ul>
+                <li><a href="http://www.hit.edu.cn">哈工大主页</a></li>
+                <li><a href="">网络中心</a></li>
+                <li><a href="">今日哈工大</a></li>
+                <li><a href="http://www.pureweber.com">PureWeber</a></li>
+            </ul>
+        </div>
+        <br clear="all" />
+        <dic class="copyright">
+            <p>
+           哈尔滨市南岗区西大直街92号 查号台：+86-451-86412114 P.C.:150001 Copyright © 2015 哈尔滨工业大学网络与信息中心 黑ICP备05006863号
+             </p>
+        </div>
+
     </footer>
+
