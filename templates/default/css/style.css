@@ -85,7 +85,6 @@ body {
     background-position: top left, bottom center;
     background-repeat: repeat, no-repeat;
     height: 220px;
-    text-align: center;
     padding: 10em 0 10em 0;
     color: #fff;
 }
@@ -109,8 +108,13 @@ body {
 }
 
 .show-ul {
-	padding: 3em;
-	margin-left: -4%;
+	padding: 6em;
+}
+.show-ul li{
+	margin-left: 3em;
+	line-height: 160%;
+	border-bottom: solid #eee 1px;
+	list-style: disc
 }
 .show-ul a {
 	color:#1abc9c;
