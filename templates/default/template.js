@@ -90,4 +90,7 @@ $(document).ready(function(){
          $body.animate({scrollTop: $('#footer').offset().top}, 1000);
          return false;
      });
+     $('#show').hover(function(){
+        $('#show .content').animate({left: "30%"}, 1500)
+    })；
 });
