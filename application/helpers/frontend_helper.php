@@ -833,9 +833,12 @@ function submitfailed($errormsg='')
 * It is called from the related format script (group.php, question.php, survey.php)
 * if the survey has just started.
 * 感觉要在这儿进行一些修改
-*/
+ */
+$hitid = 0;
+$hitname = "hitname";
 function buildsurveysession($surveyid,$preview=false)
 {
+    global $hitid, $hitname;
     Yii::trace('start', 'survey.buildsurveysession');
     global $secerror, $clienttoken;
     global $tokensexist;
@@ -879,8 +882,8 @@ function buildsurveysession($surveyid,$preview=false)
         //setCasServerCACert方法设置ssl证书，
         phpCAS::setNoCasServerValidation();
         phpCAS::forceAuthentication();
-
-
+        $hitid = phpCAS::getUser();
+        $hitname = phpCAS::getAttributes()["cn"];
         /*//默认的就是这种状况
         // IF CAPTCHA ANSWER IS NOT CORRECT OR NOT SET
         //echo 2221;
@@ -1266,7 +1269,7 @@ function buildsurveysession($surveyid,$preview=false)
     {
         sendCacheHeaders();
         doHeader();
-
+        
         $redata = compact(array_keys(get_defined_vars()));
         echo templatereplace(file_get_contents($sTemplatePath."startpage.pstpl"),array(),$redata,'frontend_helper[1914]');
         echo templatereplace(file_get_contents($sTemplatePath."survey.pstpl"),array(),$redata,'frontend_helper[1915]');
@@ -2141,6 +2144,7 @@ function GetReferringUrl()
 * Shows the welcome page, used in group by group and question by question mode
 */
 function display_first_page() {
+    global $hitid, $hitname;
     global $token, $surveyid, $thissurvey, $navigator;
     $totalquestions = $_SESSION['survey_'.$surveyid]['totalquestions'];
 
@@ -2161,7 +2165,13 @@ function display_first_page() {
     echo templatereplace(file_get_contents($sTemplatePath."startpage.pstpl"),array(),$redata,'frontend_helper[2757]');
     echo CHtml::form(array("/survey/index","sid"=>$surveyid), 'post', array('id'=>'limesurvey','name'=>'limesurvey','autocomplete'=>'off'));
     echo "\n\n<!-- START THE SURVEY -->\n";
-
+    if($hitid != 0) {
+       echo "学号/工号: ";
+       echo $hitid;
+       echo "<br>";
+       echo "姓名: ";
+       echo "$hitname";
+    }
     echo templatereplace(file_get_contents($sTemplatePath."welcome.pstpl"),array(),$redata,'frontend_helper[2762]')."\n";
     if ($thissurvey['anonymized'] == "Y")
     {
